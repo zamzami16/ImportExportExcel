@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxataPOS.ImportExport", "ImportExport\AxataPOS.ImportExport.csproj", "{8EB62180-CED6-45F3-BBF3-08EB4DCF7B8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportExportConsole", "ImportExportConsole\ImportExportConsole.csproj", "{C983D026-96FA-46B0-A776-640CF66C7B39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EB62180-CED6-45F3-BBF3-08EB4DCF7B8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EB62180-CED6-45F3-BBF3-08EB4DCF7B8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EB62180-CED6-45F3-BBF3-08EB4DCF7B8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EB62180-CED6-45F3-BBF3-08EB4DCF7B8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C983D026-96FA-46B0-A776-640CF66C7B39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C983D026-96FA-46B0-A776-640CF66C7B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C983D026-96FA-46B0-A776-640CF66C7B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C983D026-96FA-46B0-A776-640CF66C7B39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8535E67C-E744-441C-B665-69170925F7EE}
+	EndGlobalSection
+EndGlobal
