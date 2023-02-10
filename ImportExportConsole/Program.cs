@@ -6,7 +6,8 @@ namespace ImportExportConsole
     {
         public static void Main()
         {
-            DataTable dt = AxataPOS.ImportExport.ImportExport.ImportExcel(@"D:\KERJA\AXATA\ImportDataExcel\ImportDataExcel\bin\TestDataTable.xlsx");
+            DataTable dt = AxataPOS.ImportExport.ImportExport.ImportExcel(@"D:\KERJA\AXATA\ImportExport\test.xlsx");
+            AxataPOS.ImportExport.ImportExport.ExportToExcel(dt, @"D:\KERJA\AXATA\ImportExport\test-from-import.xlsx");
         }
     }
 }

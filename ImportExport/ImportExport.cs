@@ -1,4 +1,5 @@
-﻿using ExcelDataReader;
+﻿using AxataPOS.ImportExport.Utils;
+using ExcelDataReader;
 using System;
 using System.Data;
 using System.IO;
@@ -7,6 +8,11 @@ namespace AxataPOS.ImportExport
 {
     public static class ImportExport
     {
+        /// <summary>
+        /// Import Data From Excel to DataTable
+        /// </summary>
+        /// <param name="FileName">Nama file excel</param>
+        /// <returns>DataTable From Excel</returns>
         public static DataTable ImportExcel(string FileName)
         {
             IExcelDataReader rdr;
@@ -38,6 +44,24 @@ namespace AxataPOS.ImportExport
                     DataTable dt = ds.Tables[0];
                     return dt;
                 }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Export DataTable to excel file. Currently support *.xlsx file.
+        /// </summary>
+        /// <param name="data">DataTable</param>
+        /// <param name="FilePath">Nama dan Path dari file</param>
+        public static void ExportToExcel(DataTable data, string FilePath)
+        {
+            try
+            {
+                var excel = data.ToExcel();
+                File.WriteAllBytes(FilePath, excel);
             }
             catch (Exception)
             {
