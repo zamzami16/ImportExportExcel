@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data;
+using System.Net.Sockets;
+using System.Net;
 using FirebirdSql.Data.FirebirdClient;
 
 namespace ImportExportConsole
@@ -7,7 +9,7 @@ namespace ImportExportConsole
     internal class Program
     {
         private static readonly string FileTest = @"D:\KERJA\AXATA\ImportExport\TestImportFromData.xlsx";
-        private static readonly string StrCon = $@"database=192.168.0.73:C:\Users\yusuf\OneDrive\Desktop\Axata\DB\AxataPOS\EMAS\Debug\Axata.axt;
+        private static readonly string StrCon = $@"database={GetLocalIPAddress()}:C:\Users\yusuf\OneDrive\Desktop\Axata\DB\AxataPOS\EMAS\Debug\Axata.axt;
             user=SYSDBA; Password=masterkey; Connection lifetime=0; Dialect=3; Server=localhost";
         private static readonly FbConnection conn = new FbConnection(StrCon);
         public static void Main()
@@ -39,12 +41,29 @@ namespace ImportExportConsole
                     }
                 }
             }
+            watch.Stop();
+            var tread = watch.ElapsedMilliseconds;
+            watch.Restart();
             AxataPOS.ImportExport.ImportExport.ExportToExcel(dt, FileTest);
 
             watch.Stop();
-            var elapsedMs = watch.ElapsedMilliseconds;
+            var twrite = watch.ElapsedMilliseconds;
 
+            Console.WriteLine($"Elapsed reading data {tread} ms.\nElapsed writing excel file(s) {twrite} ms.");
             Console.ReadLine();
+        }
+
+        private static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No network adapters with an IPv4 address in the system!");
         }
     }
 }
